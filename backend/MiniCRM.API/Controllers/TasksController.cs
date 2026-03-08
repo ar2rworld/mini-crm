@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniCRM.Core.Entities;
 using MiniCRM.Core.Interfaces;
+using MiniCRM.Core.DTOs;
 
 namespace MiniCRM.API.Controllers
 {
@@ -61,13 +62,23 @@ namespace MiniCRM.API.Controllers
         EmployeeId = dto.EmployeeId,
         Title = dto.Title,
         Description = dto.Description,
-        StartDate = DateTime.UtcNow,
+        StartDate = dto.StartDate,
         Deadline = dto.Deadline,
         CompletionPercentage = 0
       };
 
       var created = await _taskRepository.AddAsync(task);
-      return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+
+      var response = new TaskResponseDto
+      {
+        Id = created.Id,
+        Title = created.Title,
+        Description = created.Description,
+        Deadline = created.Deadline,
+        CompletionPercentage = created.CompletionPercentage
+      };
+
+      return CreatedAtAction(nameof(GetById), new { id = response.Id }, response);
     }
 
     [HttpPut("{id}")]
@@ -117,6 +128,7 @@ namespace MiniCRM.API.Controllers
     public int EmployeeId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
+    public DateTime StartDate { get; set; }
     public DateTime Deadline { get; set; }
   }
 

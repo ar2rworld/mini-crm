@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MiniCRM.API.DTOs;
 using MiniCRM.API.Services;
 using MiniCRM.Core.Entities;
 using MiniCRM.Core.Interfaces;
+using MiniCRM.Core.DTOs;
 
 namespace MiniCRM.API.Controllers
 {
