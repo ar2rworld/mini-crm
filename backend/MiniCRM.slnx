@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="MiniCRM.API/MiniCRM.API.csproj" />
+  <Project Path="MiniCRM.Core/MiniCRM.Core.csproj" />
+  <Project Path="MiniCRM.Infrastructure/MiniCRM.Infrastructure.csproj" />
+</Solution>
