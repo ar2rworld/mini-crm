@@ -1,4 +1,4 @@
-namespace MiniCRM.API.DTOs
+namespace MiniCRM.Core.DTOs
 {
   public class LoginDto
   {
