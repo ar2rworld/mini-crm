@@ -39,6 +39,7 @@ namespace MiniCRM.Infrastructure.Data
         entity.Property(t => t.Description).IsRequired().HasMaxLength(2000);
         entity.Property(t => t.StartDate).IsRequired();
         entity.Property(t => t.Deadline).IsRequired();
+        entity.Property(t => t.Difficulty).IsRequired();
         entity.Property(t => t.CompletionPercentage).IsRequired();
 
         entity.HasMany(t => t.Comments)

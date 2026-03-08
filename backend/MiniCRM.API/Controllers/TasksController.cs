@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using MiniCRM.Core.Entities;
 using MiniCRM.Core.Interfaces;
 using MiniCRM.Core.DTOs;
+using System.Security.Cryptography.X509Certificates;
+using System.Diagnostics.Contracts;
 
 namespace MiniCRM.API.Controllers
 {
@@ -64,6 +66,7 @@ namespace MiniCRM.API.Controllers
         Description = dto.Description,
         StartDate = dto.StartDate,
         Deadline = dto.Deadline,
+        Difficulty = dto.Difficulty,
         CompletionPercentage = 0
       };
 
@@ -130,6 +133,7 @@ namespace MiniCRM.API.Controllers
     public string Description { get; set; } = string.Empty;
     public DateTime StartDate { get; set; }
     public DateTime Deadline { get; set; }
+    public int Difficulty { get; set; }
   }
 
   public class UpdateTaskDto
