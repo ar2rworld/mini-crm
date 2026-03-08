@@ -1,4 +1,5 @@
 using MiniCRM.Core.Entities;
+using MiniCRM.Core.DTOs;
 
 namespace MiniCRM.Core.Interfaces
 {
@@ -6,8 +7,8 @@ namespace MiniCRM.Core.Interfaces
   {
     Task<TaskEntity?> GetByIdAsync(int id);
     Task<TaskEntity?> GetByIdWithDetailsAsync(int id);
-    Task<IEnumerable<TaskEntity>> GetAllAsync();
-    Task<IEnumerable<TaskEntity>> GetByEmployeeIdAsync(int employeeId);
+    Task<List<TaskListDto>> GetAllAsync();
+    Task<List<TaskListDto>> GetByEmployeeIdAsync(int employeeId);
     Task<IEnumerable<TaskEntity>> GetTasksByDeadlineAsync(DateTime startDate, DateTime endDate);
     Task<IEnumerable<TaskEntity>> GetOverdueTasksAsync();
     Task<IEnumerable<TaskEntity>> GetTasksByCompletionPercentageAsync(int minPercentage, int maxPercentage);

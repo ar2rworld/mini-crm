@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using MiniCRM.Core.Entities;
 using MiniCRM.Core.Interfaces;
 using MiniCRM.Infrastructure.Data;
+using MiniCRM.Core.DTOs;
 
 namespace MiniCRM.Infrastructure.Repositories
 {
@@ -28,19 +29,36 @@ namespace MiniCRM.Infrastructure.Repositories
           .FirstOrDefaultAsync(t => t.Id == id);
     }
 
-    public async Task<IEnumerable<TaskEntity>> GetAllAsync()
+    public async Task<List<TaskListDto>> GetAllAsync()
     {
       return await _context.Tasks
-          .Include(t => t.Employee)
+          .Select(t => new TaskListDto
+          {
+            Id = t.Id,
+            Title = t.Title,
+            CompletionPercentage = t.CompletionPercentage,
+            Deadline = t.Deadline,
+            EmployeeName = t.Employee.FullName,
+            CommentsCount = t.Comments.Count
+          })
           .ToListAsync();
     }
 
-    public async Task<IEnumerable<TaskEntity>> GetByEmployeeIdAsync(int employeeId)
+    public async Task<List<TaskListDto>> GetByEmployeeIdAsync(int employeeId)
     {
       return await _context.Tasks
           .Where(t => t.EmployeeId == employeeId)
           .Include(t => t.Employee)
-          .ToListAsync();
+          .Select(t => new TaskListDto
+          {
+            Id = t.Id,
+            Title = t.Title,
+            CompletionPercentage = t.CompletionPercentage,
+            StartDate = t.StartDate,
+            Deadline = t.Deadline,
+            EmployeeName = t.Employee.FullName,
+            CommentsCount = t.Comments.Count
+          }).ToListAsync();
     }
 
     public async Task<IEnumerable<TaskEntity>> GetTasksByDeadlineAsync(DateTime startDate, DateTime endDate)
