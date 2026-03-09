@@ -40,6 +40,7 @@ namespace MiniCRM.Infrastructure.Repositories
             CompletionPercentage = t.CompletionPercentage,
             Deadline = t.Deadline,
             EmployeeName = t.Employee.FullName,
+            EmployeeId = t.EmployeeId,
             CommentsCount = t.Comments.Count
           })
           .ToListAsync();
