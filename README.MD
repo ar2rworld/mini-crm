@@ -81,3 +81,7 @@ PostgreSQL	localhost:5433
 ✅ You're Ready
 
 Open the frontend in your browser and start using the app.
+
+### TODO
+- ask an sql query for listing late tasks
+- implement comments for the task logic
