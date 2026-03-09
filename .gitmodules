@@ -1,3 +1,6 @@
 [submodule "backend/frontend"]
 	path = backend/frontend
 	url = https://github.com/ar2rworld/frontend
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/ar2rworld/frontend
