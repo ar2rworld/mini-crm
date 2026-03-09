@@ -8,7 +8,6 @@ namespace MiniCRM.Core.DTOs
     public int CompletionPercentage { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime Deadline { get; set; }
-    public int EmployeeId { get; set; }
     public string EmployeeName { get; set; }
     public int CommentsCount { get; set; }
   }
