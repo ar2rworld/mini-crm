@@ -3,6 +3,7 @@ using MiniCRM.Core.Entities;
 using MiniCRM.Core.Interfaces;
 using MiniCRM.Infrastructure.Data;
 using MiniCRM.Core.DTOs;
+using System.ComponentModel;
 
 namespace MiniCRM.Infrastructure.Repositories
 {
@@ -53,6 +54,7 @@ namespace MiniCRM.Infrastructure.Repositories
           {
             Id = t.Id,
             Title = t.Title,
+            Description = t.Description,
             CompletionPercentage = t.CompletionPercentage,
             StartDate = t.StartDate,
             Deadline = t.Deadline,
